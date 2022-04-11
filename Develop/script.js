@@ -84,27 +84,35 @@ var special = [
 var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
-    var userSelections = parseInt(
+    var passwordLength = parseInt(
         prompt(
             "How many characters would you like your password to be? Please select a number between 8 and 128.",
         ),
     );
 
     while (true) {
-        if (userSelections < 8) {
-            userSelections = parseInt(
+        if (passwordLength < 8) {
+            passwordLength = parseInt(
                 prompt("Please select a minimum of 8 characters."),
             );
-        } else if (userSelections > 128) {
-            userSelections = parseInt(
+        } else if (passwordLength > 128) {
+            passwordLength = parseInt(
                 prompt("The maximum number of characters is 128."),
             );
-        } else if (Number.isInteger(userSelections) === false) {
-            userSelections = parseInt(
+        } else if (Number.isInteger(passwordLength) === false) {
+            passwordLength = parseInt(
                 prompt("You must select a number between 8 and 128."),
             );
+        } else {
+            break;
         }
     }
+
+    var lowerCase = confirm("Would you like to include Lowercase letters?");
+    var upperCase = confirm("Would you like to include Uppercase letters?");
+    var specialCharac = confirm(
+        "Would you like to include Special Characters?",
+    );
 }
 
 // Write password to the #password input
@@ -117,9 +125,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-//1. Let the user decide how many characters they want 8 < x < 128
-//2. Let the user decide if they want Lowercase
-//3. Let the user decide if they want Uppercase
-//4. Let the user decide if they want Numbers
-//5. Let the user decide if they want Special Characters
