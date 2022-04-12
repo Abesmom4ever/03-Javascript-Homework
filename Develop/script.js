@@ -108,11 +108,20 @@ function generatePassword() {
         }
     }
 
-    var lowerCase = confirm("Would you like to include Lowercase letters?");
-    var upperCase = confirm("Would you like to include Uppercase letters?");
-    var specialCharac = confirm(
-        "Would you like to include Special Characters?",
-    );
+    while (true) {
+        var lowerCase = confirm("Would you like to include Lowercase letters?");
+        var upperCase = confirm("Would you like to include Uppercase letters?");
+        var specialCharac = confirm(
+            "Would you like to include Special Characters?",
+        );
+        var numberCharac = confirm("Would you like to include numbers?");
+
+        if (!lowerCase && !upperCase && !specialCharac && !numberCharac) {
+            confirm("One character type must be selected.");
+        } else {
+            break;
+        }
+    }
 }
 
 // Write password to the #password input
