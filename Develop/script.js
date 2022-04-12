@@ -82,7 +82,10 @@ var special = [
 ];
 
 var generateBtn = document.querySelector("#generate");
-var lowerString, upperString, numberString, specialString;
+var lowerString = "",
+    upperString = "",
+    numberString = "",
+    specialString = "";
 
 function generatePassword() {
     var passwordLength = parseInt(
@@ -109,37 +112,68 @@ function generatePassword() {
         }
     }
 
-    while (true) {
-        var lowerCase = confirm("Would you like to include Lowercase letters?");
-        var upperCase = confirm("Would you like to include Uppercase letters?");
-        var specialCharac = confirm(
-            "Would you like to include Special Characters?",
-        );
-        var numberCharac = confirm("Would you like to include numbers?");
+    var lowerCase = confirm("Would you like to include Lowercase letters?");
+    var upperCase = confirm("Would you like to include Uppercase letters?");
+    var specialCharac = confirm(
+        "Would you like to include Special Characters?",
+    );
+    var numberCharac = confirm("Would you like to include numbers?");
 
+    while (true) {
         if (!lowerCase && !upperCase && !specialCharac && !numberCharac) {
             confirm("One character type must be selected.");
+            lowerCase = confirm("Would you like to include Lowercase letters?");
+            upperCase = confirm("Would you like to include Uppercase letters?");
+            specialCharac = confirm(
+                "Would you like to include Special Characters?",
+            );
+            numberCharac = confirm("Would you like to include numbers?");
         } else {
             break;
         }
     }
 
-    if (confirm("Would you like to include Lowercase letters?") == true) {
+    if (lowerCase == true) {
         //lowercase array to be included in the randomization of the password string
         lowerString = lowercase.join("");
     }
-    if (confirm("Would you like to include Uppercase letters?") == true) {
+
+    let newPassword = lowerString;
+    console.log(newPassword);
+
+    if (upperCase == true) {
         upperString = uppercase.join("");
     }
-    if (confirm("Would you like to include Special Characters?") == true) {
+
+    let newPassword2 = newPassword.concat(upperString);
+
+    if (specialCharac == true) {
         specialString = special.join("");
     }
-    if (confirm("Would you like to include numbers?") == true) {
+
+    let newPassword3 = newPassword2.concat(specialString);
+    console.log(newPassword3);
+
+    if (numberCharac == true) {
         numberString = numbers.join("");
     }
 
+    let newPassword4 = newPassword3.concat(numberString);
+    console.log(newPassword4);
+
+    let newPassword5 = newPassword4.split("");
+    console.log(newPassword5);
+    console.log(typeof newPassword5);
+
+    newPassword5 = newPassword5
+        .sort(() => Math.random() - Math.random())
+        .slice(0, passwordLength)
+        .join("");
+    console.log(newPassword5);
+    console.log(newPassword5.length);
+
+    return newPassword5;
     //if string is confirmed add to the randomization for password
-    let newPassword = "";
 
     // for (each true of list) add string to list
 }
