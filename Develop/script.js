@@ -82,6 +82,7 @@ var special = [
 ];
 
 var generateBtn = document.querySelector("#generate");
+var lowerString, upperString, numberString, specialString;
 
 function generatePassword() {
     var passwordLength = parseInt(
@@ -122,6 +123,25 @@ function generatePassword() {
             break;
         }
     }
+
+    if (confirm("Would you like to include Lowercase letters?") == true) {
+        //lowercase array to be included in the randomization of the password string
+        lowerString = lowercase.join("");
+    }
+    if (confirm("Would you like to include Uppercase letters?") == true) {
+        upperString = uppercase.join("");
+    }
+    if (confirm("Would you like to include Special Characters?") == true) {
+        specialString = special.join("");
+    }
+    if (confirm("Would you like to include numbers?") == true) {
+        numberString = numbers.join("");
+    }
+
+    //if string is confirmed add to the randomization for password
+    let newPassword = "";
+
+    // for (each true of list) add string to list
 }
 
 // Write password to the #password input
