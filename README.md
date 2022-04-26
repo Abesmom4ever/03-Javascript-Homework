@@ -34,6 +34,11 @@ The following image shows the web application's appearance and functionality:
 
 ![The Password Generator application displays a red button to "Generate Password".](./Assets/03-javascript-homework-demo.png)
 
+## Deploy Pages
+
+Git Hub Repository: https://github.com/Abesmom4ever/03-Javascript-Homework
+Deployed Page: https://abesmom4ever.github.io/03-Javascript-Homework/
+
 ---
 
 © 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
